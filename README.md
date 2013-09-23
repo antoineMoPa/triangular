@@ -3,15 +3,20 @@ triangular
 
 A cellular automation toy where you define the cell switching pattern
 
+[See it in action here](http://a-mo-pa.com/dev/canvas/tri/)
+
+
 ## How to use
 1. Draw with your mouse on the canvas
 2. Click 'Iterate'
 3. Click small blue squares in the pattern selector
 
 ## What can I do with it ?
-* Observe how complexity gets developed within the canvas when you discover interesting patterns
+* Observe how complexity develops itself within the canvas when you discover interesting patterns
 * Get inspired with the crazy patterns that may happen
-* Increase the canvas size and create some random form of art
+* Increase the canvas size and create some random artworks
+
+(http://25.media.tumblr.com/91786e375ff4db0dd8974ae39c51f9ee/tumblr_mt72q7e2SJ1svno9go6_1280.png)
 
 ## How it works
 
