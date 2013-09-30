@@ -100,7 +100,81 @@ function App(){
 				app.data[j][i] = value
 			}
 		}
+	}	
+	
+	app.sound = function(soundFunction){
+		
+		var soundFunction = soundFunction || app.soundFunctions.sum
+		
+		var wave = new RIFFWAVE(soundFunction())
+		var audio = new Audio(wave.dataURI)
+		audio.play()
+		
 	}
+	
+	app.soundFunctions = {}
+	
+	app.soundFunctions.sum = function(col){
+		var col = col || false
+		var maxExecutionTime = 3000
+		var miliseconds = new Date().getTime()
+		var data = []
+		var appdata = app.data.slice()
+		var soundData = []
+		var elapsedTime = 0
+		
+		for(var i=0; elapsedTime < maxExecutionTime;i++){
+			var sum = 0
+			for(var j=0;j < app.size;j++) {
+				sum = 0
+				for(var k=0;k<app.size;k++){
+					if(col == false){
+						if(appdata[j][k] == true)
+							sum++
+					}
+					else{
+						if(appdata[k][j] == true)
+							sum++
+					}
+				}
+				soundData.push(Math.round(sum/app.size*255))
+			}
+			
+			elapsedTime = new Date().getTime() - miliseconds
+			
+			//Normalize
+			
+			var min = 127
+			var max = 127
+			
+			for(s in soundData){
+				if(s < min)
+					min = s
+				else if (s > max)
+					max = s
+			}
+			
+			var multiply
+	
+			if(255 - max > min)
+				multiply = 1/max * 255
+			else
+				multiply = 1/(255 - min) * 255
+			
+			for(var i = 0; i<soundData.length;i++)
+				soundData[i] = soundData[i] * multiply
+			
+			
+			app.iterate()
+		}
+		
+		return soundData
+	}
+	
+	app.soundFunctions.sumCol = function(){
+		return app.soundFunctions.sum(true)
+	}
+	
 	
 	/**
 	@param slow bool Go step by step with sleep between steps
@@ -189,6 +263,9 @@ function App(){
 	q.d("#buttons").append("<input type='button' id='smaller-canvas' value='Smaller canvas'>")
 	q.d("#buttons").append("<input type='button' id='randomize-colors' value='Randomize colors'>")
 	q.d("#buttons").append("<input type='button' id='clear-pattern' value='Clear pattern'>")
+	q.d("#buttons").append("<br>")
+	q.d("#buttons").append("<input type='button' id='create-sound-sum' value='Create sound with sum of lines'>")
+	q.d("#buttons").append("<input type='button' id='create-sound-sum-col' value='Create sound with sum of columns'>")
 	
 	q.d("#control-panel").prepend("<div id='pattern-selector'>"+patternSelectorContent+"</div>")
 	
@@ -290,6 +367,14 @@ function App(){
 	})
 	
 	var iterating = false
+	
+	q.d("#create-sound-sum").on("mousedown",function(){
+		app.sound()
+	})
+	
+	q.d("#create-sound-sum-col").on("mousedown",function(){
+		app.sound(app.soundFunctions.sumCol)
+	})
 	
 	q.d("#next-iteration").on("mousedown",function(){
 		app.iterate()

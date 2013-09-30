@@ -251,18 +251,17 @@ q = shortcutLib;
 		
 		$.each(function(){
 			$.element.classList.remove(className)
-		})
-		return $
+		});
+		return $;
 	}
 	
 	q.d.fn.toggleClass = function(className){
-		var $ = this
+		var $ = this;
 		
 		$.each(function(){
-			console.log ("test")
 			$.element.classList.toggle(className)
-		})
-		return $
+		});
+		return $;
 	}
 	
 	q.d.fn.hasClass = function(className){
@@ -279,8 +278,8 @@ q = shortcutLib;
 			el.addEventListener(eventType,function(event){
 				
 				callback.call(el,event)
-			})
-		})
+			});
+		});
 		
 		return $;
 	}
