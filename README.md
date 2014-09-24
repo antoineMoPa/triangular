@@ -3,7 +3,7 @@ triangular
 
 A cellular automation toy where you define the cell switching pattern
 
-[See it in action here](http://a-mo-pa.com/dev/canvas/tri/)
+[See it in action here](http://a-mo-pa.com/triangular/)
 
 
 ## How to use
