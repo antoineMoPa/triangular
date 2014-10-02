@@ -137,7 +137,7 @@ function App(){
 							sum++
 					}
 				}
-				soundData.push(Math.round(sum/app.size*255))
+				soundData.push(Math.round(sum/app.size*254))
 			}
 			
 			elapsedTime = new Date().getTime() - miliseconds
