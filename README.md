@@ -1,7 +1,7 @@
 triangular
 ==========
 
-A cellular automation toy where you define the cell switching pattern
+A cellular automata toy where you define the cell switching pattern
 
 [See it in action here](http://a-mo-pa.com/triangular/)
 
@@ -16,7 +16,6 @@ A cellular automation toy where you define the cell switching pattern
 * Get inspired with the crazy patterns that may happen
 * Increase the canvas size and create some random artworks
 
-![Triangular in action](http://25.media.tumblr.com/91786e375ff4db0dd8974ae39c51f9ee/tumblr_mt72q7e2SJ1svno9go6_1280.png "Triangular in action")
 
 ## How it works
 
