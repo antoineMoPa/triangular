@@ -137,7 +137,7 @@ function App(){
 							sum++
 					}
 				}
-				soundData.push(Math.round(sum/app.size*254))
+				soundData.push(Math.round(sum/app.size*255))
 			}
 			
 			elapsedTime = new Date().getTime() - miliseconds
@@ -264,8 +264,8 @@ function App(){
 	q.d("#buttons").append("<input type='button' id='randomize-colors' value='Randomize colors'>")
 	q.d("#buttons").append("<input type='button' id='clear-pattern' value='Clear pattern'>")
 	q.d("#buttons").append("<br>")
-	q.d("#buttons").append("<input type='button' id='create-sound-sum' value='Create sound with sum of lines'>")
-	q.d("#buttons").append("<input type='button' id='create-sound-sum-col' value='Create sound with sum of columns'>")
+	q.d("#buttons").append("<input type='button' id='create-sound-sum' value='Create sound with sum of lines (warning: bad for your speakers)'>")
+	q.d("#buttons").append("<input type='button' id='create-sound-sum-col' value='Create sound with sum of columns (warning: bad for your speakers)'>")
 	
 	q.d("#control-panel").prepend("<div id='pattern-selector'>"+patternSelectorContent+"</div>")
 	
