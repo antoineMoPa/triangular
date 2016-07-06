@@ -72,3 +72,25 @@ input[type='button']:hover{
 p{
     font-family:sans-serif;
 }
+
+@media all and (max-width:768px){
+    #create-sound-sum,
+    #create-sound-sum-col,
+    #bigger-canvas,
+    #smaller-canvas,
+    #zoom-in,
+    #zoom-out{
+	display:none;
+    }
+    canvas{
+	display:block;
+	margin:auto;
+    }
+    input[type='button']{
+	margin-left:0;
+	margin-right:10px;
+    }
+    #buttons{
+	margin-left:0;
+    }
+}
